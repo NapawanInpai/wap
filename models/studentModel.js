@@ -37,7 +37,7 @@ const StudentSchema = new mongoose.Schema({
   status: {
     type: String,
     required: true,
-    enum: ['กำลังศึกษา', 'จบการศึกษา', 'พักการเรียน', 'ลาออก'],
+    enum: ['กำลังศึกษา'],
     default: null
   }
 }, {
