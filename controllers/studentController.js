@@ -56,10 +56,10 @@ exports.getStudentById = async (req, res) => {
 // POST new student
 exports.addStudent = async (req, res) => {
     try {
-        const { student_id, full_name, email, class: className, major, gpa, enroll_year, status } = req.body;
+        const { student_id, full_name, email, /*class: className,*/ major, gpa, enroll_year, status } = req.body;
 
         // Validate required fields
-        if (!student_id || !full_name || !email || !className || !major || !gpa || !enroll_year || !status) {
+        if (!student_id || !full_name || !email || !major || !gpa || !enroll_year || !status) {
             return res.status(400).json({
                 status: 'error',
                 message: 'Missing required fields'
@@ -87,7 +87,7 @@ exports.addStudent = async (req, res) => {
             student_id,
             full_name,
             email,
-            class: className,
+            /*class: className,*/
             major,
             gpa,
             enroll_year,
@@ -115,7 +115,7 @@ exports.addStudent = async (req, res) => {
 exports.updateStudentById = async (req, res) => {
     try {
         const { id } = req.params;
-        const { student_id, full_name, email, class: className, major, gpa, enroll_year, status } = req.body;
+        const { student_id, full_name, email, /*class: className,*/ major, gpa, enroll_year, status } = req.body;
 
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(400).json({
@@ -125,7 +125,7 @@ exports.updateStudentById = async (req, res) => {
         }
 
         // Validate required fields
-        if (!student_id || !full_name || !email || !className || !major || !gpa || !enroll_year || !status) {
+        if (!student_id || !full_name || !email || !major || !gpa || !enroll_year || !status) {
             return res.status(400).json({
                 status: 'error',
                 message: 'Missing required fields'
@@ -162,7 +162,7 @@ exports.updateStudentById = async (req, res) => {
 
         const updatedStudent = await StudentModel.findByIdAndUpdate(
             id,
-            { student_id, full_name, email, class: className, major, gpa, enroll_year, status },
+            { student_id, full_name, email, /*class: className,*/ major, gpa, enroll_year, status },
             { new: true, runValidators: true }
         );
 
