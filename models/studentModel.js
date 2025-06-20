@@ -38,7 +38,7 @@ const StudentSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: ['กำลังศึกษา'],
-    default: null
+    default: 'กำลังศึกษา'
   }
 }, {
   timestamps: true,
