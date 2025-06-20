@@ -13,6 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // Routes
+app.get('/', (req, res) => {
+  res.send('Hello from server!');
+});
 app.use('/api', studentRoutes);
 
 const PORT = process.env.PORT || 3000;
@@ -29,4 +32,3 @@ const PORT = process.env.PORT || 3000;
     .catch((error) => {
         console.error('Error connecting to MongoDB:', error.message);
     });
-  
