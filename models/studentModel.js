@@ -42,7 +42,8 @@ const StudentSchema = new mongoose.Schema({
   }
 }, {
   timestamps: true,
-  versionKey: false
+  versionKey: false,
+  default: null
 });
 
 module.exports = mongoose.model('students', StudentSchema);
